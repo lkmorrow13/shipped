@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/show'
   get 'boat_jobs/index'
   get 'boat_jobs/new'
   get 'boat_jobs/edit'
