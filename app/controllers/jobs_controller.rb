@@ -19,4 +19,10 @@ class JobsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:user_id, :containers_needed, :origin, :destination, :cost, :description, :name)
+  end
 end
