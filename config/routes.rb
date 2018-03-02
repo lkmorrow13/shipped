@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'boat_jobs/index'
+  get 'boat_jobs/new'
+  get 'boat_jobs/edit'
+  get 'boat_jobs/update'
+  get 'boat_jobs/create'
+  get 'boat_jobs/show'
+  get 'boat_jobs/destroy'
   get 'jobs/index'
   get 'jobs/new'
   get 'jobs/edit'
