@@ -19,4 +19,10 @@ class BoatsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def boat_params
+    params.require(:boat).permit(:user_id, :containers, :location, :name)
+  end
 end

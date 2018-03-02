@@ -19,4 +19,10 @@ class BoatJobsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def boat_jobs_params
+    params.require(:boat_jobs).permit(:user_id, :job_id)
+  end
 end
