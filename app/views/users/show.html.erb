@@ -1,2 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-3">
+			<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+			<h3><%= @user.email %></h3>
+		</div>
+		<div class="col-3 offset-2">
+			<h3><%= @user.bio %></h3>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<% @user.jobs.each do |job| %>
+			<div class="col-3">
+				<%= job.name %>
+				<%= job.description %>
+				<%= job.origin %>
+				<%= job.containers_needed %>
+				<%= job.destination %>
+				<%= job.cost %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<% @user.boats.each do |boat| %>
+			<div class="col-3">
+				<%= boat.name %>
+				<%= boat.containers %>
+				<%= boat.location %>
+			</div>
+		<% end %>
+	</div>
+</div>
