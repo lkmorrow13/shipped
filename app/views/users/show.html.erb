@@ -9,6 +9,26 @@
 		</div>
 	</div>
 </div>
+<%= form_with model: Boat.new, id: 'boat-new-form', data: {'parsley-validate': ''} do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :containers %><br />
+    <%= f.text_field :containers %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
 <div class="container">
 	<div class="row">
 		<% @user.jobs.each do |job| %>
@@ -24,13 +44,9 @@
 	</div>
 </div>
 <div class="container">
-	<div class="row">
+	<div class="boats row">
+		<%= render @user.boats.reverse %>
 		<% @user.boats.each do |boat| %>
-			<div class="col-3">
-				<%= boat.name %>
-				<%= boat.containers %>
-				<%= boat.location %>
-			</div>
 		<% end %>
 	</div>
 </div>

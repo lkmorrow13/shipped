@@ -18,11 +18,13 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = current_user.boats.new(job_params)
-    if @boat.save
-      redirect_to @boat
-    else
-      
+    @boat = current_user.boats.new(boat_params)
+    respond_to do |format|
+      if @boat.save
+        format.html{ redirect_to @boat }
+
+        format.js
+      end
     end
   end
 
@@ -31,8 +33,13 @@ class BoatsController < ApplicationController
   end
 
   def destroy
-    current_user.boats.find(params[:id]).destroy
-    redirect_to new_boat_path
+    @boat = current_user.boats.find(params[:id])
+    respond_to do |format|
+      if @boat.destroy
+        format.html{ redirect_to new_boat_path }
+        format.js
+      end
+    end
   end
 
   private
