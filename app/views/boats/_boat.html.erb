@@ -1,0 +1,8 @@
+<div class="boat">
+	<%= boat.name %>
+	<%= boat.containers %>
+	<%= boat.location %>
+	User: <%= boat.user.first_name %>
+	<%= link_to "delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
+	<%= link_to "view", boat %>
+</div>
