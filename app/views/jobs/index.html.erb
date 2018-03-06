@@ -1,2 +1,44 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<div class="container">
+  <div class="row boatMargin justify-content-center greyBackground">
+    <%= form_with model: Job.new, id: 'job-new-form', data: {'parsley-validate': ''} do |f| %>
+      <div class="field form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    
+      <div class="field form-group">
+        <%= f.label :origin %><br />
+        <%= f.text_field :origin %>
+      </div>
+    
+      <div class="field form-group">
+        <%= f.label :containers_needed %><br />
+        <%= f.text_field :containers_needed %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :destination %><br />
+        <%= f.text_field :destination %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :cost %><br />
+        <%= f.text_field :cost %>
+      </div>
+
+      <div class="field form-group">
+        <%= f.label :description %><br />
+        <%= f.text_area :description %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="jobs row justify-content-center greyBackground">
+    <%= render @jobs.reverse %>
+  </div>
+</div>
