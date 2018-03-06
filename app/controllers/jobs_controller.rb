@@ -19,10 +19,12 @@ class JobsController < ApplicationController
 
   def create
     @job = current_user.jobs.new(job_params)
-    if @job.save
-      redirect_to @job
-    else
-      
+    respond_to do |format|
+      if @job.save
+        format.html{ redirect_to @job }
+
+        format.js
+      end
     end
   end
 
@@ -31,8 +33,13 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    current_user.jobs.find(params[:id]).destroy
-    redirect_to new_job_path
+    @job = current_user.jobs.find(params[:id])
+    respond_to do |format|
+      if @job.destroy
+        format.html{ redirect_to new_job_path }
+        format.js
+      end
+    end
   end
 
   private

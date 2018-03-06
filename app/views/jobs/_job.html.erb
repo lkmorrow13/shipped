@@ -1,0 +1,12 @@
+<div class="job card col-3 boatMargin">
+	<img src="" alt="" class="card-img-top">
+	<div class="card-body">
+		<h3 class="card-title"><%= job.name %></h3>
+		<h5 class="card-text">Containers: <%= job.containers_needed %></h5>
+		<h5 class="card-text">origin: <%= job.origin %></h5>
+		<h5 class="card-text">Owner: <%= job.user.first_name %></h5>
+		<h5 class="card-text">Destination: <%= job.destination %></h5>
+		<p class="card-text">Description: <%= job.description %></p>
+	</div>
+	<%= link_to "delete", job, method: :delete, remote: true, class: 'delete-job-link' %>
+</div>
