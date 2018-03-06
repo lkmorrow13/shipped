@@ -12,6 +12,13 @@ class BoatJobsController < ApplicationController
   end
 
   def create
+    @boat = Boat.find(boat_job_params[:boat_id])
+    @job = Job.find(boat_job_params[:job_id])
+    @job.boats << @boat
+    respond_to do |format|
+      @type = params[:type]
+      format.js
+    end
   end
 
   def show
@@ -22,7 +29,7 @@ class BoatJobsController < ApplicationController
 
   private
 
-  def boat_jobs_params
-    params.require(:boat_jobs).permit(:user_id, :job_id)
+  def boat_job_params
+    params.require(:boat_job).permit(:boat_id, :job_id)
   end
 end

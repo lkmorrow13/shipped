@@ -1,4 +1,4 @@
-<div class="job card col-3 boatMargin">
+<div class="job card col-3 boatMargin" id="job-<%= job.id %>">
 	<img src="" alt="" class="card-img-top">
 	<div class="card-body">
 		<h3 class="card-title"><%= job.name %></h3>
@@ -9,4 +9,15 @@
 		<p class="card-text">Description: <%= job.description %></p>
 	</div>
 	<%= link_to "delete", job, method: :delete, remote: true, class: 'delete-job-link' %>
+	<%= form_with model: BoatJob.new, id: 'boat_job-new-form', data: {'parsley-validate': ''} do |f| %>
+		<%= f.collection_select :boat_id, Boat.all, :id, :name, {prompt: "Add a Boat"}, class: 'create_contract' %>
+		<%= f.hidden_field :job_id, value: job.id %>
+		<%= hidden_field_tag :type, 'job' %>
+	<% end %>
+	<h4>Boats on the job!</h4>
+	<div class="boat-jobs">
+		<% job.boats.each do |boat| %>
+			<p><%= boat.name %></p>
+		<% end %>
+	</div>
 </div>
