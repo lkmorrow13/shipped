@@ -1,0 +1,6 @@
+<% if @type == 'job' %>
+		console.log('#job-<%= @job.id %>');
+    $('#job-<%= @job.id %>').find('.boat-jobs').prepend("<%= j render 'boat_jobs/job_boat', boat: @boat %>")
+<% else %>
+    $('#boat-<%= @boat.id %>').find('.boat-jobs').prepend("<%= j render 'boat_job/boat_job', job: @job %>")
+<% end %>
