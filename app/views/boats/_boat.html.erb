@@ -5,6 +5,12 @@
 		<h5 class="card-text">Containers: <%= boat.containers %></h5>
 		<h5 class="card-text">Location: <%= boat.location %></h5>
 		<h5 class="card-text">Owner: <%= boat.user.first_name %></h5>
+		<div class="boat-jobs">
+			<h5 class="card-text">Jobs</h5>
+			<% boat.jobs.each do |job| %>
+				<p><%= job.name %></p>
+			<% end %>
+		</div>
 	</div>
 	<%= link_to "delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
 </div>
