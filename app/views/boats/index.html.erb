@@ -1,20 +1,29 @@
-<%= form_with model: @user, data: {'parsley-validate': ''}, local: true do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<div class="container">
+  <div class="row boatMargin justify-content-center greyBackground">
+    <%= form_with model: Boat.new, id: 'boat-new-form', data: {'parsley-validate': ''} do |f| %>
+      <div class="field form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    
+      <div class="field form-group">
+        <%= f.label :location %><br />
+        <%= f.text_field :location %>
+      </div>
+    
+      <div class="field form-group">
+        <%= f.label :containers %><br />
+        <%= f.text_field :containers %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+</div>
+<div class="container">
+  <div class="boats row justify-content-center greyBackground">
+    <%= render @boats.reverse %>
   </div>
-
-  <div class="field">
-    <%= f.label :containers %><br />
-    <%= f.text_field :containers %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>

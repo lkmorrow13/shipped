@@ -1,8 +1,10 @@
-<div class="boat">
-	<%= boat.name %>
-	<%= boat.containers %>
-	<%= boat.location %>
-	User: <%= boat.user.first_name %>
+<div class="boat card col-3 boatMargin">
+	<img src="" alt="" class="card-img-top">
+	<div class="card-body">
+		<h3 class="card-title"><%= boat.name %></h3>
+		<h5 class="card-text">Containers: <%= boat.containers %></h5>
+		<h5 class="card-text">Location: <%= boat.location %></h5>
+		<h5 class="card-text">Owner: <%= boat.user.first_name %></h5>
+	</div>
 	<%= link_to "delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
-	<%= link_to "view", boat %>
 </div>
