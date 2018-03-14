@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :boats
   resources :boat_jobs
 
-  root 'home#index'
+  root 'boats#index'
 end

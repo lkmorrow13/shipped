@@ -1,6 +1,7 @@
 <div class="boat card col-3 boatMargin" id="boat-<%= boat.id %>">
 	<img src="" alt="" class="card-img-top">
 	<div class="card-body">
+    <%= image_tag boat.image[0], class: 'card-img-top' %>
 		<h3 class="card-title"><%= boat.name %></h3>
 		<h5 class="card-text">Containers: <%= boat.containers %></h5>
 		<h5 class="card-text">Location: <%= boat.location %></h5>
@@ -14,3 +15,4 @@
 	</div>
 	<%= link_to "delete", boat, method: :delete, remote: true, class: 'delete-boat-link' %>
 </div>
+
