@@ -15,6 +15,11 @@
         <%= f.label :containers %><br />
         <%= f.text_field :containers %>
       </div>
+
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :images, multiple: true, class: 'form-control-file btn btn-primary' %>
+      </div>
     
       <div class="actions">
         <%= f.submit "Submit" %>
