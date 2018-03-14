@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, uniqueness: true
   validates :last_name, uniqueness: true
-  validates :email, uniqueness: true
-  validates :password, length: {minimum: 7}
 
   has_many :boats
   has_many :jobs
