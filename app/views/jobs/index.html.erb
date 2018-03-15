@@ -8,7 +8,7 @@
     
       <div class="field form-group">
         <%= f.label :origin %><br />
-        <%= f.text_field :origin %>
+        <%= f.select :origin, ['Sweden', 'USA', 'China', 'Thailand', 'Norway', 'Japan', 'Italy', 'France'], {}, {class: ""} %>
       </div>
     
       <div class="field form-group">
@@ -18,7 +18,7 @@
 
       <div class="field form-group">
         <%= f.label :destination %><br />
-        <%= f.text_field :destination %>
+        <%= f.select :destination, ['Sweden', 'USA', 'China', 'Thailand', 'Norway', 'Japan', 'Italy', 'France'], {}, {class: ""} %>
       </div>
 
       <div class="field form-group">

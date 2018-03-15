@@ -5,4 +5,5 @@ class Boat < ApplicationRecord
   has_one_attached :image
 
   validates :name, uniqueness: true
+  validates_inclusion_of :location, in: ['Sweden', 'USA', 'China', 'Thailand', 'Norway', 'Japan', 'Italy', 'France']
 end
